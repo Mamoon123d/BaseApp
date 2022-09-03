@@ -7,6 +7,9 @@ import android.os.Bundle
 import android.util.Log
 import android.view.WindowManager
 import android.widget.Toast
+import androidx.activity.result.ActivityResult
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
@@ -14,6 +17,7 @@ import androidx.viewbinding.ViewBinding
 
 
 public abstract class BaseActivity<D : ViewBinding> : AppCompatActivity() {
+
 
     protected lateinit var binding: D
     protected var tag = ""
@@ -32,24 +36,44 @@ public abstract class BaseActivity<D : ViewBinding> : AppCompatActivity() {
 
     }
 
+
+    //logs...........
     protected open fun logD(msg: String, tag: String? = "") {
         Log.d("${this.localClassName} : $tag", "$msg : ")
     }
 
+    protected open fun logE(msg: String, tag: String? = "") {
+        Log.e("${this.localClassName} : $tag", "$msg : ")
+    }
 
-    /*protected open fun startForRegister(): ActivityResultLauncher<Intent> {
+    protected open fun logI(msg: String, tag: String? = "") {
+        Log.i("${this.localClassName} : $tag", "$msg : ")
+    }
 
-            val startForResult=registerForActivityResult(ActivityResultContracts.StartActivityForResult()){
-                    result: ActivityResult ->
-                if (result.resultCode== Activity.RESULT_OK){
+    protected open fun logW(msg: String, tag: String? = "") {
+        Log.w("${this.localClassName} : $tag", "$msg : ")
+    }
 
-                }
+    protected open fun logV(msg: String, tag: String? = "") {
+        Log.v("${this.localClassName} : $tag", "$msg : ")
+    }
+    //--------------------------------------------------------------
+
+
+    protected open fun startForRegister(code_result: Int): ActivityResultLauncher<Intent> {
+
+        val startForResult =
+            registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
+                getResult(result, code_result)
+                /* if (result.resultCode== Activity.RESULT_OK){
+                   getResult(result,code_result)
+                 }*/
 
             }
-            return startForResult
-        }*/
+        return startForResult
+    }
 
-
+    protected open fun getResult(result: ActivityResult, code_result: Int) {}
     protected abstract fun initM()
 
     protected abstract fun setLayoutId(): Int
@@ -63,6 +87,10 @@ public abstract class BaseActivity<D : ViewBinding> : AppCompatActivity() {
             startActivity(Intent(this, activityClass::class.java).putExtras(bundle))
         else
             startActivity(Intent(this, activityClass::class.java))
+    }
+
+    protected open fun launchActivity(activityClass: Activity, code_result: Int) {
+        startForRegister(code_result).launch(Intent(this, activityClass::class.java))
     }
 
     protected open fun goActivity(url: String) {

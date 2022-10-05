@@ -9,11 +9,13 @@ public abstract class BaseRvAdapter<T, VH : BaseRvViewHolder>(context: Context, 
     RecyclerView.Adapter<VH>() {
     protected var onItemClickListener: OnItemClickListener? = null
     protected var onItemLongClickListener: OnItemLongClickListener? = null
+    protected var position=-1
 
     // protected var list2:List<T>?=null
 
     override fun onBindViewHolder(holder: VH, position: Int) {
         //item click listener
+        this.position=position
         if (onItemClickListener != null) {
             holder.itemView.setOnClickListener { v ->
                 onItemClickListener?.onItemClick(v, position)

@@ -53,7 +53,7 @@ dependencies {
                     from components.release
                     groupId = 'com.baseApp'
                     artifactId = 'base-library'
-                    version = '1.0'
+                    version = '1.2'
                 }
             }
         }

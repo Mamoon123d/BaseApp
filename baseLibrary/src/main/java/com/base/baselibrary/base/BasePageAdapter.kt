@@ -1,4 +1,4 @@
-package com.moon.baselibrary.base
+package com.base.baselibrary.base
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager

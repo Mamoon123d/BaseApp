@@ -1,4 +1,4 @@
-package com.moon.baseapp
+package com.base.baselibrary
 
 import org.junit.Test
 

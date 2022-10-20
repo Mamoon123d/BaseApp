@@ -1,4 +1,4 @@
-package com.moon.baselibrary
+package com.base.baselibrary
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

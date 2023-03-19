@@ -48,7 +48,7 @@ dependencies {
 
  afterEvaluate {
 
-     android.libraryVariants.each{
+   /*  android.libraryVariants.each{
          variant->
              publishing.publications.create(variant.name,MavenPublication){
                  from components.findByName(variant.name)
@@ -58,8 +58,8 @@ dependencies {
                  version = '1.2'
 
              }
-     }
-       /* publishing {
+     }*/
+        publishing {
             publications {
                 release(MavenPublication) {
                     from components.release
@@ -70,5 +70,5 @@ dependencies {
 
             }
 
-        }*/
+        }
     }

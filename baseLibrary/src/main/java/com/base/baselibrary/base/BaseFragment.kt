@@ -14,15 +14,12 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewbinding.ViewBinding
 
-public abstract class BaseFragment<B : ViewBinding> : Fragment() {
+abstract class BaseFragment<B : ViewBinding> : Fragment() {
     protected lateinit var mActivity: FragmentActivity
     protected var rootView: View? = null
     protected lateinit var binding: B
 
     protected var isFirstLoad = false
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -32,7 +29,7 @@ public abstract class BaseFragment<B : ViewBinding> : Fragment() {
         //rootView = inflater.inflate(setLayoutId()!!, container, false)
         binding = DataBindingUtil.inflate(inflater, setLayoutId(), container, false)
 
-        rootView=binding.root
+        rootView = binding.root
         //ButterKnife.bind(this, rootView!!)
         return binding.root
     }
@@ -43,7 +40,7 @@ public abstract class BaseFragment<B : ViewBinding> : Fragment() {
         initM()
     }
 
-    protected abstract  fun initM()
+    protected abstract fun initM()
 
     protected abstract fun setLayoutId(): Int
 
@@ -62,14 +59,10 @@ public abstract class BaseFragment<B : ViewBinding> : Fragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        if (context is FragmentActivity){
-            mActivity=context
+        if (context is FragmentActivity) {
+            mActivity = context
         }
     }
 
 
-    override fun onDestroy() {
-        super.onDestroy()
-
-    }
 }

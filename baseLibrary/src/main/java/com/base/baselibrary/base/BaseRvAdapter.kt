@@ -15,18 +15,18 @@ public abstract class BaseRvAdapter<T, VH : BaseRvViewHolder>(context: Context, 
 
     override fun onBindViewHolder(holder: VH, position: Int) {
         //item click listener
-        this.position=position
+        this.position = position
         if (onItemClickListener != null) {
             holder.itemView.setOnClickListener { v ->
                 onItemClickListener?.onItemClick(v, position)
             }
         }
 
-       /* if (onItemLongClickListener != null) {
-            holder.itemView.setOnLongClickListener { v ->
-               //dd
-            }
-        }*/
+        /* if (onItemLongClickListener != null) {
+             holder.itemView.setOnLongClickListener { v ->
+                //dd
+             }
+         }*/
 
         onBindData(holder, list[position])
     }
@@ -87,6 +87,5 @@ public abstract class BaseRvAdapter<T, VH : BaseRvViewHolder>(context: Context, 
     public fun setOnItemLongClickListener(onItemLongClickListener: OnItemLongClickListener) {
         this.onItemLongClickListener = onItemLongClickListener
     }
-
 
 }

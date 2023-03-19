@@ -34,6 +34,8 @@ public abstract class BaseActivity<D : ViewBinding> : AppCompatActivity() {
         overridePendingTransition(0, animId)
     }
 
+
+
     /**
      *
     val i = Intent(this, AnyActivity::class.java)

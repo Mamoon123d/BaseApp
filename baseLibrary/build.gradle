@@ -62,7 +62,7 @@ dependencies {
          publications {
              release(MavenPublication) {
                  from components.release
-                 groupId = 'com.baseApp'
+                 groupId = 'com.base.baselibrary'
                  artifactId = 'baseLibrary'
                  version = '1.2'
              }

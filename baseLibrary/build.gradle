@@ -48,14 +48,24 @@ dependencies {
 }
 
  afterEvaluate {
-        publishing {
-            publications {
-                release(MavenPublication) {
-                    from components.release
-                    groupId = 'com.baseApp'
-                    artifactId = 'base-library'
-                    version = '1.2'
-                }
-            }
+    /* android.libraryVariants.each { variant ->
+         publishing.publications.create(variant, name, MavenPublication) {
+             from components.findByName(variant, name)
+             groupId = 'com.baseApp'
+             artifactId = 'baseLibrary'
+             version = '1.2'
+         }
+
+     }*/
+     publishing {
+
+         publications {
+             release(MavenPublication) {
+                 from components.release
+                 groupId = 'com.baseApp'
+                 artifactId = 'baseLibrary'
+                 version = '1.2'
+             }
+         }
         }
     }

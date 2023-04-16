@@ -19,7 +19,7 @@ Step 2. Add the dependency
   
 dependencies {
 	      
-        implementation 'com.github.Mamoon123d:BaseApp:Tag'
+        implementation 'com.github.Mamoon123d:BaseApp:1.2'
 	  
 	  }
 	

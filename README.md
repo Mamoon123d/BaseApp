@@ -10,9 +10,12 @@ allprojects {
 			maven { url 'https://jitpack.io' }
 		}
 	}
+  ```
   
 Step 2. Add the dependency
 ```gradle
-dependencies {
+    
+    dependencies {
 	        implementation 'com.github.Mamoon123d:BaseApp:Tag'
 	}
+	```

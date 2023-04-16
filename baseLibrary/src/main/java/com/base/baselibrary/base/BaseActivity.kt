@@ -234,7 +234,7 @@ public abstract class BaseActivity<D : ViewBinding> : AppCompatActivity() {
              * Register activity result using a [ActivityResultContract] and an in-place activity result callback like
              * the default approach. You can still customise callback using [.launch].
              */
-            fun <Input, Result> registerForActivityResult(
+            private fun <Input, Result> registerForActivityResult(
                 caller: ActivityResultCaller,
                 contract: ActivityResultContract<Input, Result>,
                 onActivityResult: OnActivityResult<Result>?
@@ -246,7 +246,7 @@ public abstract class BaseActivity<D : ViewBinding> : AppCompatActivity() {
              * Same as [.registerForActivityResult] except
              * the last argument is set to `null`.
              */
-            fun <Input, Result> registerForActivityResult(
+            private fun <Input, Result> registerForActivityResult(
                 caller: ActivityResultCaller,
                 contract: ActivityResultContract<Input, Result>
             ): BetterActivityResult<Input, Result> {
